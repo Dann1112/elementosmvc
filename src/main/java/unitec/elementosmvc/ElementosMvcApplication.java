@@ -22,9 +22,24 @@ public class ElementosMvcApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        servicio.obtenerSaldo().obtenerSaldo();
+        
         LocalDate fecha = LocalDate.now();
-        repoMensaje.save(new Mensaje(fecha,"Mi Primer mensaje"));
-        repoMensaje.save(new Mensaje("Mensaje"));
+        //repoMensaje.save(new Mensaje("hola",fecha,"Puerco"));
+        //repoMensaje.save(new Mensaje("Mensaje"));
+        
+        //Buscar todos los mensajes ya
+        for( Mensaje mensa: repoMensaje.findAll()){
+            System.out.println(mensa);
+        }
+        
+        System.out.println(repoMensaje.findByCuerpo("cerdito"));
+        
+        
+        //Buscar por id
+        //repoMensaje.findById("5b08c893b1ff2b18782b4e64").get();
+        
+        
+        
+        
     }
 }
